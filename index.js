@@ -21,7 +21,8 @@ connectToMongo()
 
 app.use('/api/groupchat', require('./routes/Group'))
 app.use('/api/user', require('./routes/User'))
-// app.use('/api/groupchat', require('./routes/Group'))
+app.use('/api/message', require('./routes/Message'))
+app.use('/api/chatroom', require('./routes/ChatRoom'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

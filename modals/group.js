@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const ChatRoom = require('./chatRoom')
-
 
 const groupSchema = new Schema({
   name : {
@@ -15,7 +13,7 @@ const groupSchema = new Schema({
       ref : "User",
     },
   ],
-  chatRooms : [ChatRoom],
+  chatRooms : Array,
 });
 
 module.exports = mongoose.model("Group", groupSchema);
