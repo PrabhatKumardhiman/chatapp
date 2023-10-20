@@ -1,5 +1,10 @@
 const express = require('express')
 const cors = require('cors')
+const mongoose = require("mongoose") // Using Mongoose to Handle MongoDB Connection
+const dotenv = require('dotenv');
+
+dotenv.config()// receving files form .env
+
 const app = express()
 const port = 3000
 
@@ -9,6 +14,10 @@ app.get('/', (req, res) => {
 
 app.use(express.json())
 app.use(cors())
+
+// Function to Connect to MONGODB
+const connectToMongo = require('./connectToMongo');
+connectToMongo()
 
 app.use('/api/groupchat', require('./routes/Group'))
 app.use('/api/user', require('./routes/User'))
