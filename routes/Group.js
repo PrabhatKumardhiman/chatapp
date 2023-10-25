@@ -38,7 +38,6 @@ router.get('/fetchallgroups', async (req, res) => {
 // API to update group info on http://localhost:3000/api/group/updategroup which will update details of groups.
 router.put('/updategroup/:id', async (req, res) => {
   try {
-
     const id = req.params.id;
     const { groupname, grouppass, chatpass } = req.body
     const updatedgroup = {}

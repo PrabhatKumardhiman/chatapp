@@ -7,6 +7,11 @@ const chatRoomSchema = new Schema({
     type: String,
     required: true,
   },
+  group : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "Group",
+    required : true,
+  },
   messages: Array,
 });
 
