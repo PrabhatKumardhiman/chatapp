@@ -33,7 +33,12 @@ router.post('/createchatroom', async (req, res) => {
 router.get('/fetchallchatroom', async (req, res) => {
   try {
     const chatRoom = await ChatRoom.find()
-    return res.send(chatRoom)
+    if (chatRoom.length === 0) {
+      return res.status(404).send('No Data Found')
+    }
+    else {
+      return res.send(chatRoom)
+    }
   } catch (error) {
     return console.log(error);
   }
@@ -49,7 +54,7 @@ router.delete('/deletechatroom/:id', async (req, res) => {
       return res.status(200).json({ sucess: 'ChatRoom deleted', deletechatroom })
     }
     else {
-      return res.status(200).send('No Chat Room Found')
+      return res.status(404).send('No Chat Room Found')
     }
   } catch (error) {
     res.status(500).send('internal server error', error)
