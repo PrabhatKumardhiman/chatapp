@@ -46,7 +46,7 @@ router.delete('/deletechatroom/:id', async (req, res) => {
     const chatroom = await ChatRoom.findById(id);
     if (chatroom) {
       const deletechatroom = await ChatRoom.findByIdAndDelete(id)
-      return res.status(200).json({ sucess: 'Note deleted', deletechatroom })
+      return res.status(200).json({ sucess: 'ChatRoom deleted', deletechatroom })
     }
     else {
       return res.status(200).send('No Chat Room Found')
